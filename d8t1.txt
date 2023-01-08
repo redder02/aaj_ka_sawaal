@@ -1,0 +1,43 @@
+void pushZerosToEnd(int arr[], int n) {
+	    // code here
+	    int low , high;
+	    int gin=0;
+	    for(int i =0;i<n;i++)
+	    {
+	        if(arr[i]>0)
+	            gin++;
+	    }
+	    int j=0;
+	    for(int i=0;i<n;i++)
+	        if(arr[i] == 0){
+	            low = i;
+	            break;
+	        }
+	    for(int i=low+1;i<n;i++)
+	    {
+	        if(arr[i] > 0){
+	            high = i;break;
+	        }
+	    }
+	    int temp;
+	    while(high<n && j<gin)
+	    {
+	        
+	        arr[low] = arr[high];
+	        arr[high] = 0;
+	        low++;
+	        
+	        for(int i= high+1;i<n;i++)
+	        {
+	            if(arr[i]>0)
+	           {    
+	               high=i;
+	               break;
+	           }
+	        }
+	        j++;
+	    }
+	    
+	    
+	   
+	}
