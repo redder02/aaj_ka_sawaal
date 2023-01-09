@@ -1,15 +1,11 @@
 bool isPowerofTwo(long long n){
         
         // Your code here    
-        long long val;
-        val = 1;
-        while(true)
-        {
-            if(val == n)
-                return 1;
-            if(val>n)
-                return 0;
-            val = val*2;
-        }
+        int val;
+        val = n&(n-1);
+	if(val)
+        	return 0;
+	else
+		return 1;
         
     }
