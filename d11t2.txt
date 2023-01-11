@@ -1,0 +1,18 @@
+vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+
+        int hash[1001] = {0};
+        vector<int> result;
+        for(auto i: nums1){
+            hash[i]++;
+        }
+        for(auto i:nums2){
+            if(hash[i]>0)
+            {
+                //for(int j=1;j<=hash[i];j++)
+                result.push_back(i);
+                hash[i] = 0;
+            }
+        }
+        return result;
+        
+    }
