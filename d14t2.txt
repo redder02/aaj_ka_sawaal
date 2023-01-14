@@ -1,0 +1,57 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int res = -1;
+        int low = 0;
+        int high = nums.size() -1 ;
+        int mid = low + (high - low)/2;
+        if(nums.size()==1)
+        {
+            // if(target == nums[0])
+            //     return 0;
+            //cout<<"i am here"<<endl;
+            if(target<=nums[0])
+                return 0;
+            else
+                return 1;
+        }
+        while(low<=high)
+        {
+            mid = low + (high - low )/2;
+            if(nums[mid] == target)
+            {
+                res = mid;
+                return mid;
+            }
+            else if(nums[mid]>target)
+                high = mid-1;
+            else    
+                low = mid +1;
+        }
+        low = 0;
+        high = nums.size() -1;
+        
+        while(low <= high)
+        {
+            mid = low + (high - low)/2;
+            if(mid == 0 )
+            {   
+                if(target < nums[mid])
+                    return 0;
+                else
+                    mid++;
+            }
+            if(nums[mid- 1] < target && nums[mid]>target)
+                return mid;
+            else if( nums[mid-1]>target && nums[mid]> target)
+                high = mid -1;
+            else    
+                low = mid + 1;
+            if(mid == nums.size()-1)
+            {    
+                return (nums.size());
+            }
+        }
+        return 0;
+    }
+};
